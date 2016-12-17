@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, final int position) {
             holder.mTextView.setText(mData.get(position).getFileName());
+            holder.mImageView.setImageResource(mData.get(position).getFileIcon());
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -162,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         EditText editText = (EditText) item.findViewById(R.id.edittext);
-                        if(editText.getText().equals("")){
+                        if(editText.getText().toString().equals("")){
                             Toast.makeText(MainActivity.this, R.string.input_dir_name, Toast.LENGTH_SHORT).show();
                             return;
                         }
@@ -219,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     EditText editText = (EditText) item.findViewById(R.id.edittext);
-                    if(editText.getText().equals("")){
+                    if(editText.getText().toString().equals("")){
                         Toast.makeText(MainActivity.this, R.string.input_dir_name, Toast.LENGTH_SHORT).show();
                         return;
                     }
